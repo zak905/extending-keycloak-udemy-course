@@ -13,7 +13,7 @@ services:
       KC_HOSTNAME: localhost
       KC_HOSTNAME_STRICT_HTTPS: "false"
       JAVA_OPTS_APPEND: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
-    command: ["start-dev"]
+    command: ["start-dev", "--spi-email-sender-default-my-config=myValue", "--spi-email-sender-provider=void-email-sender", "--spi-password-policy-dollar-password-enabled=false"]
     volumes:
       - ./target/deploy:/opt/keycloak/providers/
       - ./src/main/resources/theme:/opt/keycloak/themes/

@@ -13,6 +13,8 @@ public class VoidEmailSenderProviderFactory implements EmailSenderProviderFactor
 
     private static Logger logger = Logger.getLogger("com.gwidgets.EmailSenderProvider");
 
+    private String myConfig = "default";
+
     @Override
     public EmailSenderProvider create(KeycloakSession session) {
         return new VoidEmailSenderProvider();
@@ -20,7 +22,8 @@ public class VoidEmailSenderProviderFactory implements EmailSenderProviderFactor
 
     @Override
     public void init(Config.Scope config) {
-        logger.log(Level.INFO, "Email sender initialized");
+        myConfig = config.get("my-config");
+        logger.log(Level.INFO, "Email sender initialized, I received {0} value for my-config", myConfig);
     }
 
     @Override
@@ -35,6 +38,6 @@ public class VoidEmailSenderProviderFactory implements EmailSenderProviderFactor
 
     @Override
     public String getId() {
-        return "default";
+        return "void-email-sender";
     }
 }
