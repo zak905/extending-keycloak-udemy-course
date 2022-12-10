@@ -1,5 +1,6 @@
 package com.gwidgets;
 
+import org.keycloak.authentication.InitiatedActionSupport;
 import org.keycloak.authentication.RequiredActionContext;
 import org.keycloak.authentication.RequiredActionProvider;
 import org.keycloak.connections.jpa.JpaConnectionProvider;
@@ -38,6 +39,16 @@ public class FeelingSurveyRequiredActionProvider implements RequiredActionProvid
         var feeling = context.getHttpRequest().getFormParameters().getFirst("feeling");
         addAttribute(context, "feeling", feeling);
         context.success();
+    }
+
+    @Override
+    public InitiatedActionSupport initiatedActionSupport() {
+        return InitiatedActionSupport.SUPPORTED;
+    }
+
+    @Override
+    public int getMaxAuthAge() {
+        return 200;
     }
 
     @Override

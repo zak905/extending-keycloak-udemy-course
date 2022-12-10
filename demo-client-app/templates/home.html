@@ -1,0 +1,34 @@
+{{ define "home" }}
+<html>
+    <head>
+
+    </head>
+    <body>
+            <h2> Hey {{ .user }} ! Welcome to Extending Keycloak course!</h2> 
+
+            <h2>In this course you will learn:</h2>
+            <ul>
+                <li>How to create custom Required Actions</li>
+                <li>How to use AIAs</li>
+            </ul>
+            <h3><a href="{{ .accountURL }}" target="_blank">Access Account Console</a></h3>
+            <br>
+            <br>
+            <h3>Token: </h3>
+            <pre>
+                {{ .token }}
+            </pre>
+            <br>
+            <br>
+            <h3>We would really appreciate if you can fill our feeling <a href="{{ .aiaURL }}">Survey</a></h3>
+            <br>
+            <br>
+            <h5>
+                <form method="POST" action="/logout">
+                    <input type="submit" name="Submit" value="Submit">
+                </form>
+            </h5>
+    </body>
+</html>
+
+{{ end }}

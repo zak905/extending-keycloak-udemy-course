@@ -1,0 +1,23 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: ui
+  path: .
+  commands:
+    install:
+      status: false
+      method: go build -o ui main.go
+    run:
+      status: true
+      method: ./ui
+  watcher:
+    extensions:
+    - go
+    paths:
+    - ./
+    ignored_paths:
+    - .git
+    - .realize
+    - vendor
