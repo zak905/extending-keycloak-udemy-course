@@ -1,6 +1,8 @@
 {
   "themes": [
     {
+      "name": "bootstrap",
+      "type": ["account"]
     }
   ]
 }
