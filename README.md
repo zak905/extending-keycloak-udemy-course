@@ -1,5 +1,7 @@
 
-This repo contains the code for all the examples from the Udemy course: `Extending Keycloak: a beginners guide`
+This repo contains the code for all the examples from the Udemy course:
+
+[![cover](https://gwidgets.s3.eu-west-1.amazonaws.com/udemy-cover.png)](https://www.udemy.com/course/extending-keycloak/)
 
 
 # Lesson Outline:
