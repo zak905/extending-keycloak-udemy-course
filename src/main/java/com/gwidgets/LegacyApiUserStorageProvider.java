@@ -104,7 +104,7 @@ public class LegacyApiUserStorageProvider implements UserStorageProvider, UserQu
         try {
             return SimpleHttp.doGet(apiBaseUrl + "/users", session).asJson(new TypeReference<List<LegacyUser>>() {
             }).stream().map((LegacyUser legacyUser) -> new LegacyUserAdapter(legacyUser, componentId))
-                    .filter(user -> Objects.equals(user.getEmail(), email)).findFirst().get();
+                    .filter(user -> Objects.equals(user.getEmail(), email)).findFirst().orElse(null);
         } catch (Exception e) {
             e.printStackTrace();
         }
